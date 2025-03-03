@@ -16,6 +16,11 @@ if host is None:
 from pwn import *
 
 %if not quiet:
+# Suppress warnings about using strings instead of bytes
+%endif
+warnings.filterwarnings(action='ignore',category=BytesWarning)
+
+%if not quiet:
 # Many built-in settings can be controlled on the command-line and show up
 # in "args".  For example, to dump all data sent/received
 # ./exploit.py DEBUG
